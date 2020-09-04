@@ -1,0 +1,17 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: wordpress-ingress
+  namespace: ttc-team-03
+  annotations:
+    kubernetes.io/ingress.global-static-ip-name: web-static-ip
+    networking.gke.io/managed-certificates: wordpress-cert
+    #ingress.kubernetes.io/affinity: 'cookie'
+    #cloud.google.com/neg: '{"ingress": false}'
+  labels:
+    app: wordpress
+spec:
+    backend:
+      serviceName: wordpress-service
+      servicePort: 80
+

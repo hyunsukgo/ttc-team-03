@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: wordpress-service
+  namespace: ttc-team-03
+  annotations:
+    cloud.google.com/neg: '{"ingress": false}'
+    ingress.kubernetes.io/affinity: 'cookie'
+  #  cloud.google.com/load-balancer-type: "Internal"
+  labels:
+    service: wordpress
+spec:
+  type: NodePort
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 80
+  selector:
+    app: wordpress
+  

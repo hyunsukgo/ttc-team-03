@@ -1,0 +1,8 @@
+apiVersion: networking.gke.io/v1beta2
+kind: ManagedCertificate
+metadata:
+  name: wordpress-cert
+  namespace: ttc-team-03
+spec:
+  domains:
+    - team03.sk-ttc.com

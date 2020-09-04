@@ -1,0 +1,91 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: wordpress
+  namespace: ttc-team-03
+  labels:
+    app: wordpress
+spec:
+  serviceName: wordpress
+  replicas: 3
+  selector:
+    matchLabels:
+      app: wordpress
+  template:
+    metadata:
+      labels:
+        app: wordpress
+    spec:
+      containers:
+        - image: gcr.io/ttc-team-03/wordpress:latest
+          name: wordpress
+          resources:
+            requests:
+              memory: 0.5Gi
+              cpu: 50m
+            limits: 
+              memory: 1Gi
+              cpu: 200m
+          env:
+            - name: WORDPRESS_DB_INFO
+              valueFrom:
+                configMapKeyRef:
+                  name: wordpress-configuration
+                  key: WORDPRESS_DB_HOST
+            - name: WORDPRESS_DB_INFO
+              valueFrom:
+                configMapKeyRef:
+                   name: wordpress-configuration
+                   key: WORDPRESS_DB_NAME
+            - name: WORDPRESS_DB_INFO
+              valueFrom:
+                configMapKeyRef:
+                   name: wordpress-configuration
+                   key: WORDPRESS_DB_NAME
+            - name: WORDPRESS_DB_INFO
+              valueFrom:
+                configMapKeyRef:
+                  name: wordpress-configuration
+                  key: WORDPRESS_DB_USER
+            - name: WORDPRESS_DB_INFO
+              valueFrom:
+                configMapKeyRef:
+                   name: wordpress-configuration
+                   key: WORDPRESS_DB_PASSWORD
+            - name: WORDPRESS_DB_INFO
+              valueFrom:
+                configMapKeyRef:
+                   name: wordpress-configuration
+                   key: _TITLE_
+            - name: WORDPRESS_DB_INFO
+              valueFrom:
+                configMapKeyRef:
+                   name: wordpress-configuration
+                   key: _NAME_
+            - name: WORDPRESS_DB_INFO
+              valueFrom:
+                configMapKeyRef:
+                   name: wordpress-configuration
+                   key: _PASS_
+            - name: WORDPRESS_DB_INFO
+              valueFrom:
+                configMapKeyRef:
+                   name: wordpress-configuration
+                   key: _EMAIL_
+          ports:
+            - containerPort: 80
+              name: wordpress
+          volumeMounts:
+            - name: data
+              mountPath: /var/www/html
+  volumeClaimTemplates:
+  - metadata:
+      name: data
+    spec:
+      accessModes:
+        - ReadWriteOnce
+      storageClassName: wordpress
+      # NOTE: You can increase the storage size
+      resources:
+        requests:
+          storage: 10Gi

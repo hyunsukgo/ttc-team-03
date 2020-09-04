@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: wordpress-configuration
+  namespace: ttc-team-03
+data:
+  # 속성과 비슷한 키; 각 키는 간단한 값으로 매핑됨
+  #
+  # 파일과 비슷한 키
+  WORDPRESS_DB_HOST: 10.104.240.3:3306
+  WORDPRESS_DB_NAME: wordpress
+  WORDPRESS_DB_USER: ttc
+  WORDPRESS_DB_PASSWORD: TTC@2020sk
+  _TITLE_: "TTC+SHOP"
+  _NAME_: "ttc"
+  _PASS_: "TTC@2020sk"
+  _EMAIL_: "hyunseokjung163@gmail.com"

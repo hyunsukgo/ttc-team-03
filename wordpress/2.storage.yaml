@@ -1,0 +1,10 @@
+kind: StorageClass
+apiVersion: storage.k8s.io/v1
+metadata:
+  name: wordpress
+  namespace: ttc-team-03
+  labels:
+    service: wordpress
+provisioner: kubernetes.io/gce-pd
+parameters:
+  type: pd-ssd
