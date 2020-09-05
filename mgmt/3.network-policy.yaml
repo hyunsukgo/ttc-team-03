@@ -1,0 +1,38 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: wordpress-network-policy
+  namespace: ttc-team-03
+spec:
+  podSelector:
+    matchLabels:
+      app: wordpress
+  policyTypes:
+  - Ingress
+  ingress:
+  - from:
+    - ipBlock:
+        cidr: 0.0.0.0/0
+        except:
+        - 172.17.1.0/24
+        #- 218.38.51.93/32
+        - 35.191.0.0/16
+        - 35.191.0.0/16
+        - 209.85.152.0/22
+        - 209.85.204.0/22
+        - 130.211.0.0/22
+        - 3.34.33.23/32
+        - 211.45.60.5/31
+        - 10.16.0.0/14
+        - 10.20.0.0/20
+    - podSelector:
+        matchLabels:
+          app: wordpress
+    ports:
+    - protocol: TCP
+      port: 80
+    - protocol: TCP
+      port: 443
+  egress:
+    - {}
+      
