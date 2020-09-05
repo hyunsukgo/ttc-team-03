@@ -17,14 +17,14 @@ spec:
         app: wordpress
     spec:
       containers:
-        - image: gcr.io/ttc-team-03/wordpress:latest
+        - image: gcr.io/ttc-team-03/wordpress:test
           name: wordpress
           resources:
             requests:
-              memory: 0.5Gi
-              cpu: 50m
-            limits: 
               memory: 1Gi
+              cpu: 100m
+            limits: 
+              memory: 2Gi
               cpu: 200m
           env:
             - name: WORDPRESS_DB_INFO
