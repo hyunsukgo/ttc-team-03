@@ -14,19 +14,23 @@ spec:
     - ipBlock:
         cidr: 0.0.0.0/0
         except:
-        - 172.16.0.0/28
-        #- 218.38.51.93/32
-        - 35.191.0.0/16
-        - 209.85.152.0/22
-        - 209.85.204.0/22
-        - 130.211.0.0/22
-        - 3.34.33.23/32
-        - 211.45.60.5/31
-        - 10.16.0.0/14
-        - 10.20.0.0/20
+        - 172.16.0.0/28 # Master Ip Range
+        - 218.38.51.93/32 #My IP
+        - 35.191.0.0/16 # Health Check
+        - 209.85.152.0/22 # Health Check
+        - 209.85.204.0/22 # Health Check
+        - 130.211.0.0/22 # Health Check
+        - 3.34.33.23/32 # SK C&C IP Range
+        - 211.45.60.5/31 # SK C&C IP Range
+        - 10.16.0.0/14 # Pod IP Range
+        - 10.20.0.0/20 # Service IP Range
     - podSelector:
         matchLabels:
           app: wordpress
+    - namespaceSelector:
+        matchLabels:
+          project: ttc-team-03
+          
     ports:
     - protocol: TCP
       port: 80
