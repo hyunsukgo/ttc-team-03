@@ -6,8 +6,8 @@ steps:
   args: ['docker','push', 'gcr.io/ttc-team-03/wordpress:latest']
 - name: 'gcr.io/cloud-builders/kubectl'
   args: ['set', 'image', 'deployment/my-deployment', 'my-container=gcr.io/ttc-team-03/wordpress:latest']
-- name: 'Kubernetes Deployment'
-  args: ['kubectl','apply','-f','./wordpress/3.wordpress-statefulset.yaml']
+#- name: 'Kubernetes Deployment'
+#  args: ['kubectl','apply','-f','./wordpress/3.wordpress-statefulset.yaml']
   env:
   - 'CLOUDSDK_COMPUTE_ZONE=asia-northeast3-a'
   - 'CLOUDSDK_CONTAINER_CLUSTER=ttcteam'
