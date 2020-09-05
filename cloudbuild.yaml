@@ -2,8 +2,10 @@ steps:
 - name: 'gcr.io/ttc-team-03/wordpress:latest'
   args: ['docker','build', '-t', 'wordpress:test', './web/']
   timeout: 500s
-- name: 'gcr.io/cloud-builders/docker'
-  args: ['docker','push', 'gcr.io/ttc-team-03/wordpress:latest']
+- name: 'test'
+  args: ['docker','tag','wordpress:test','gcr.io/ttc-team-03/wordpress:test']
+- name: 'gcr.io/ttc-team-03/wordpress:test'
+  args: ['docker','push', 'gcr.io/ttc-team-03/wordpress:test']
 - name: 'gcr.io/cloud-builders/kubectl'
   args: ['set', 'image', 'deployment/my-deployment', 'my-container=gcr.io/ttc-team-03/wordpress:latest']
 #- name: 'Kubernetes Deployment'
