@@ -1,6 +1,6 @@
 steps:
 - name: 'gcr.io/ttc-team-03/wordpress:latest'
-  args: ['docker','build', '-t', 'wordpress:test', './web/.']
+  args: ['build', '-t', 'wordpress:test', './web/.']
   timeout: 500s
 - name: 'test'
   args: ['docker','tag','wordpress:test','gcr.io/ttc-team-03/wordpress:test']
