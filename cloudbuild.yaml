@@ -11,8 +11,6 @@ steps:
 
 - name: 'gcr.io/cloud-builders/kubectl'
   args: ['kubectl', 'apply', '-f', './3.wordpress-statefulset.yaml']
-#- name: 'Kubernetes Deployment'
-#  args: ['kubectl','apply','-f','./wordpress/3.wordpress-statefulset.yaml']
   env:
   - 'CLOUDSDK_COMPUTE_ZONE=asia-northeast3-a'
   - 'CLOUDSDK_CONTAINER_CLUSTER=ttcteam'
