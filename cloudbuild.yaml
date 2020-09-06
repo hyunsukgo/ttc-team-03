@@ -1,16 +1,15 @@
 steps:
+# Docker File Builds
 - name: 'gcr.io/cloud-builders/docker'
   args: ['build', '-t', 'wordpress:test', './dockerfile/.']
   timeout: 500s
-
+# Docker file Tagging
 - name: 'gcr.io/cloud-builders/docker'
   args: ['tag','wordpress:test','gcr.io/ttc-team-03/wordpress:test']
-
+# Docker file push to gcr
 - name: 'gcr.io/cloud-builders/docker'
   args: ['push', 'gcr.io/ttc-team-03/wordpress:test']
 
-- name: 'gcr.io/cloud-builders/kubectl'
-  args: [ 'apply', '-f', './3.wordpress-statefulset.yaml']
   env:
   - 'CLOUDSDK_COMPUTE_ZONE=asia-northeast3-a'
   - 'CLOUDSDK_CONTAINER_CLUSTER=ttcteam'
