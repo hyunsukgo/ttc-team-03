@@ -1,0 +1,39 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: wordpress-network-policy
+  namespace: ttc-team-03
+spec:
+  podSelector:
+    matchLabels:
+      app: wordpress
+  policyTypes:
+  - Ingress
+  ingress:
+  - from:
+    - ipBlock:
+        cidr: 0.0.0.0/0
+        except:
+        - 172.16.0.0/28 # Master Ip Range
+        - 218.38.51.93/32 #My IP
+        - 35.191.0.0/16 # Health Check
+        - 209.85.152.0/22 # Health Check
+        - 209.85.204.0/22 # Health Check
+        - 130.211.0.0/22 # Health Check
+        - 3.34.33.23/32 # SK C&C IP Range
+        - 211.45.60.5/31 # SK C&C IP Range
+        - 10.16.0.0/14 # Pod IP Range
+        - 10.20.0.0/20 # Service IP Range
+        - 10.100.100.0/24 #Node IP Range
+    ports:
+    - protocol: TCP
+      port: 80
+    - protocol: TCP
+      port: 443
+    - protocol: TCP
+      port: 10256
+    - protocol: TCP
+      port: 32573
+  egress:
+    - {}
+      
