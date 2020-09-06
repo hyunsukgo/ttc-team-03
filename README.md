@@ -365,6 +365,27 @@ spec:
 ### 3-3 Service 생성
 
 ```yaml
-kubectl apply -f a
+kubectl apply -f service.yaml
 ```
+
+{% code title="service.yaml" %}
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: es
+  namespace: ttc-team-03
+  labels:
+    service: elasticsearch
+spec:
+  clusterIP: 10.20.10.100
+  ports:
+  - port: 9200
+    name: serving
+  - port: 9300
+    name: node-to-node
+  selector:
+    service: elasticsearch
+```
+{% endcode %}
 
