@@ -128,5 +128,7 @@ scenarios:
 
 20 명 동시 접속하여 상품을 장바구니에 담고 결제하기 전 까지 부하테스트 진행
 
+![](.gitbook/assets/image%20%284%29.png)
 
+![](.gitbook/assets/image%20%285%29.png)
 
