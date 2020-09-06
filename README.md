@@ -1,4 +1,4 @@
-# ttc-team-03
+# kubernetes 구성
 
 ## 1. 비공개 클러스터 생성 배포 환경 다운로드
 
@@ -388,4 +388,130 @@ spec:
     service: elasticsearch
 ```
 {% endcode %}
+
+## 4. HPA, Network Policy 생성
+
+```yaml
+cd ../mgmt/
+```
+
+### 4-1. WAS 확장을 위한 HPA
+
+```yaml
+kubectl apply -f 1.wordpress-hpa.yaml
+```
+
+{% code title="1.wordpress-hpa.yaml" %}
+```yaml
+apiVersion: autoscaling/v2beta1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: wordpress-hpa
+  namespace: ttc-team-03
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: StatefulSet
+    name: wordpress
+  minReplicas: 3
+  maxReplicas: 9
+  metrics:
+  - type: Resource
+    resource:
+      name: cpu
+      targetAverageUtilization: 70
+  - type: Resource
+    resource:
+      name: memory 
+      targetAverageUtilization: 70
+
+```
+{% endcode %}
+
+### 4-2 Elastic Search를 위한 HPA
+
+```yaml
+kubectl apply -f 2.elasticsearch-hpa.yaml
+```
+
+{% code title="2.elasticsearch-hpa.yaml" %}
+```yaml
+apiVersion: autoscaling/v2beta1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: elasticsearch-hpa
+  namespace: ttc-team-03
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: StatefulSet
+    name: elasticsearch
+  minReplicas: 3
+  maxReplicas: 6
+  metrics:
+  - type: Resource
+    resource:
+      name: cpu
+      targetAverageUtilization: 70
+  - type: Resource
+    resource:
+      name: memory 
+      targetAverageUtilization: 70
+```
+{% endcode %}
+
+### 4-3  Network Policy 적용
+
+Network Policy를 적용하기 위해서는 클러스터 설정에서 네트워크 정책이 활성화 되어 있어야 합니다.
+
+![](.gitbook/assets/image%20%282%29.png)
+
+```yaml
+kubectl apply -f 3.networkpolicy.yaml
+```
+
+{% code title="kubectl apply -f 3.networkpolicy.yaml" %}
+```yaml
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: wordpress-network-policy
+  namespace: ttc-team-03
+spec:
+  podSelector:
+    matchLabels:
+      app: wordpress
+  policyTypes:
+  - Ingress
+  ingress:
+  - from:
+    - ipBlock:
+        cidr: 0.0.0.0/0
+        except:
+        - 172.16.0.0/28 # Master Ip Range
+        - 218.38.51.93/32 #My IP
+        - 35.191.0.0/16 # Health Check
+        - 209.85.152.0/22 # Health Check
+        - 209.85.204.0/22 # Health Check
+        - 130.211.0.0/22 # Health Check
+        - 3.34.33.23/32 # SK C&C IP Range
+        - 211.45.60.5/31 # SK C&C IP Range
+        - 10.16.0.0/14 # Pod IP Range
+        - 10.20.0.0/20 # Service IP Range
+        - 10.100.100.0/24 #Node IP Range
+    ports:
+    - protocol: TCP
+      port: 80
+    - protocol: TCP
+      port: 443
+    - protocol: TCP
+      port: 10256
+    - protocol: TCP
+      port: 32573
+  egress:
+    - {}
+```
+{% endcode %}
+
+
 
