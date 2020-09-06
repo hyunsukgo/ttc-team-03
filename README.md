@@ -389,3 +389,15 @@ spec:
 ```
 {% endcode %}
 
+## 4. HPA, Network Policy 생성
+
+```yaml
+cd ../mgmt/
+```
+
+### 4-1. WAS 확장을 위한 HPA
+
+```yaml
+kubectl apply -f 1.s
+```
+
