@@ -1,0 +1,12 @@
+0000.009 () Opened log file at time: Fri, 04 Sep 2020 06:30:19 +0000 on http://team03.sk-ttc.com
+0000.010 () UpdraftPlus WordPress backup plugin (https://updraftplus.com): 1.16.28 WP: 5.5 PHP: 7.4.9 (apache2handler, Linux wordpress-0 4.19.112+ #1 SMP Thu May 21 12:32:38 PDT 2020 x86_64) MySQL: 5.7.25-google-log WPLANG: ko_KR Server: Apache/2.4.38 (Debian) safe_mode: 0 max_execution_time: 900 memory_limit: 256M (used: 8M | 2M) multisite: N openssl: OpenSSL 1.1.1d  10 Sep 2019 mcrypt: N LANG: C ZipArchive::addFile: Y
+0000.010 () Free space on disk containing Updraft's temporary directory: 9881.6 MB
+0000.009 () Opened log file at time: Fri, 04 Sep 2020 06:30:21 +0000 on http://team03.sk-ttc.com
+0000.090 () UpdraftPlus WordPress backup plugin (https://updraftplus.com): 1.16.28 WP: 5.5 PHP: 7.4.9 (apache2handler, Linux wordpress-0 4.19.112+ #1 SMP Thu May 21 12:32:38 PDT 2020 x86_64) MySQL: 5.7.25-google-log WPLANG: ko_KR Server: Apache/2.4.38 (Debian) safe_mode: 0 max_execution_time: 900 memory_limit: 256M (used: 7.6M | 8M) multisite: N openssl: OpenSSL 1.1.1d  10 Sep 2019 mcrypt: N LANG: C ZipArchive::addFile: Y
+0000.090 () Free space on disk containing Updraft's temporary directory: 9881.6 MB
+0000.090 () Ensuring WP_Filesystem is setup for a restore
+0000.091 () WP_Filesystem is setup and ready for a restore
+0000.104 () Restore job started. Entities to restore: plugins, themes, uploads, others. Restore options: {"updraft_encryptionphrase":"","updraft_restorer_wpcore_includewpconfig":false,"updraft_incremental_restore_point":-1}
+0000.120 () An error condition has occurred for the first time during this job
+0000.121 () Restore failed...
+0000.121 () Restore failed

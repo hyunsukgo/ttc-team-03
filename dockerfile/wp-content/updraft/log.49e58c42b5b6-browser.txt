@@ -1,0 +1,4 @@
+0000.104 (R) [notice] Looking for plugins archive: file name: backup_2020-09-04-1009_TTC_SHOP_69c9b6fef3d1-plugins.zip
+0000.113 (R) [warning] Archive is expected to be size: 25215.9 KB: 에러: file is size: 0 (25821118, )
+0000.120 (R) [warning] Could not find one of the files for restoration (backup_2020-09-04-1009_TTC_SHOP_69c9b6fef3d1-plugins.zip)
+0000.121 (R) [notice] Restore failed...

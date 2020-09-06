@@ -1,0 +1,44 @@
+0000.213 (R) [notice] Looking for plugins archive: file name: backup_2020-09-04-1009_TTC_SHOP_69c9b6fef3d1-plugins.zip
+0000.213 (R) [notice] Archive is expected to be size: 25215.9 KB: OK
+0000.213 (R) [notice] Looking for plugins archive: file name: backup_2020-09-04-1009_TTC_SHOP_69c9b6fef3d1-plugins2.zip
+0000.213 (R) [notice] Archive is expected to be size: 1644.3 KB: OK
+0000.214 (R) [notice] Looking for themes archive: file name: backup_2020-09-04-1009_TTC_SHOP_69c9b6fef3d1-themes.zip
+0000.214 (R) [notice] Archive is expected to be size: 5520 KB: OK
+0000.214 (R) [notice] Looking for uploads archive: file name: backup_2020-09-04-1009_TTC_SHOP_69c9b6fef3d1-uploads.zip
+0000.214 (R) [notice] Archive is expected to be size: 3843.9 KB: OK
+0000.214 (R) [notice] Looking for others archive: file name: backup_2020-09-04-1009_TTC_SHOP_69c9b6fef3d1-others.zip
+0000.214 (R) [notice] Archive is expected to be size: 3305.2 KB: OK
+0000.223 (R) [notice] Unpacking backup... (backup_2020-09-04-1009_TTC_SHOP_69c9b6fef3d1-plugins.zip, 24.6 MB)
+0001.910 (R) [notice] Unzip progress: 1187 out of 7474 files (1.5 KB, plugins/woocommerce-gateway-paypal-express-checkout/woocommerce-gateway-paypal-express-checkout.php)
+0002.997 (R) [notice] Unzip progress: 2188 out of 7474 files (4.8 MB, plugins/updraftplus/vendor/phpseclib/phpseclib/LICENSE)
+0005.710 (R) [notice] Unzip progress: 3189 out of 7474 files (32.1 MB, plugins/woocommerce/packages/woocommerce-admin/vendor/composer/installers/src/Composer/Installers/TaoInstaller.php)
+0007.113 (R) [notice] Unzip progress: 4190 out of 7474 files (41.1 MB, plugins/woocommerce/packages/woocommerce-blocks/assets/js/blocks/single-product/constants.js)
+0008.408 (R) [notice] Unzip progress: 5191 out of 7474 files (48.3 MB, plugins/woocommerce/includes/admin/meta-boxes/views/html-variation-admin.php)
+0010.211 (R) [notice] Unzip progress: 6192 out of 7474 files (64.9 MB, plugins/jetpack/_inc/class.jetpack-provision.php)
+0012.206 (R) [notice] Unzip progress: 7193 out of 7474 files (79.5 MB, plugins/jetpack/modules/sharedaddy/images/smart-tumblr@2x.png)
+0012.707 (R) [notice] Unzip progress: 7474 out of 7474 files (83.6 MB, plugins/elasticpress/dist/js/dashboard-script.min.js.map)
+0012.710 (R) [notice] Moving old data out of the way...
+0013.404 (R) [notice] Moving unpacked backup into place...
+0016.997 (R) [notice] Cleaning up rubbish...
+0017.006 (R) [notice] Unpacking backup... (backup_2020-09-04-1009_TTC_SHOP_69c9b6fef3d1-plugins2.zip, 1.6 MB)
+0017.996 (R) [notice] Unzip progress: 483 out of 483 files (4.7 MB, plugins/redis-cache/readme.txt)
+0017.997 (R) [notice] Moving unpacked backup into place...
+0018.398 (R) [notice] Cleaning up rubbish...
+0018.414 (R) [notice] Unpacking backup... (backup_2020-09-04-1009_TTC_SHOP_69c9b6fef3d1-themes.zip, 5.4 MB)
+0019.407 (R) [notice] Unzip progress: 466 out of 466 files (9.4 MB, themes/index.php)
+0019.408 (R) [notice] Moving old data out of the way...
+0019.499 (R) [notice] Moving unpacked backup into place...
+0019.699 (R) [notice] Cleaning up rubbish...
+0019.719 (R) [notice] Unpacking backup... (backup_2020-09-04-1009_TTC_SHOP_69c9b6fef3d1-uploads.zip, 3.8 MB)
+0020.208 (R) [notice] Unzip progress: 444 out of 444 files (3.7 MB, uploads/wc-logs/test-log.log)
+0020.209 (R) [notice] Moving old data out of the way...
+0020.209 (R) [notice] Moving unpacked backup into place...
+0020.399 (R) [notice] Cleaning up rubbish...
+0020.416 (R) [notice] Unpacking backup... (backup_2020-09-04-1009_TTC_SHOP_69c9b6fef3d1-others.zip, 3.2 MB)
+0021.904 (R) [notice] Unzip progress: 636 out of 636 files (11.3 MB, languages/ko_KR-2c5d274ea625dd91556554ad82901529.json)
+0021.905 (R) [notice] Cleaning up rubbish...
+0021.906 (R) [notice] Error: Failed to delete working directory after restoring. (/var/www/html/wp-content/upgrade/42d94694)
+0021.906 (R) [notice] Files found:
+0021.906 (R) [notice] * upgrade
+0022.002 (R) [notice] Plugin path hello.php not found: de-activating.
+0022.019 (R) [notice] Restore successful!
