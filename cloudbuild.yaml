@@ -4,7 +4,7 @@ steps:
   timeout: 500s
 
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['docker','tag','wordpress:test','gcr.io/ttc-team-03/wordpress:test']
+  args: ['tag','wordpress:test','gcr.io/ttc-team-03/wordpress:test']
 
 - name: 'gcr.io/cloud-builders/docker'
   args: ['docker','push', 'gcr.io/ttc-team-03/wordpress:test']
