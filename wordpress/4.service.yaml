@@ -3,13 +3,13 @@ kind: Service
 metadata:
   name: wordpress-service
   namespace: ttc-team-03
-  annotations:
-    cloud.google.com/neg: '{"ingress": true}'
+  #annotations:
+  #  cloud.google.com/neg: '{"ingress": true}'
   #  cloud.google.com/load-balancer-type: "Internal"
   labels:
     service: wordpress
 spec:
-  type: NodePort
+  type: LoadBalancer
   ports:
   - protocol: TCP
     port: 80

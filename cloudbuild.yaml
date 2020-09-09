@@ -9,10 +9,10 @@ steps:
 # Docker file push to gcr
 - name: 'gcr.io/cloud-builders/docker'
   args: ['push', 'gcr.io/ttc-team-03/wordpress:test']
-
+# Deploy
   env:
   - 'CLOUDSDK_COMPUTE_ZONE=asia-northeast3-a'
   - 'CLOUDSDK_CONTAINER_CLUSTER=ttcteam'
 tags:
   - wordpress
-images: ['gcr.io/ttc-team-03/wordpress:latest']
+images: ['gcr.io/ttc-team-03/wordpress:test']

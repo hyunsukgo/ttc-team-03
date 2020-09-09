@@ -1,0 +1,16 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: wordpress-cronjob
+  namespace: ttc-team-03
+spec:
+  schedule: "30 9 * * 6"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: wordpress
+            image: gcr.io/ttc-team-03/wordpress:test
+          terminationGracePeriodSeconds: 30
+          restartPolicy: OnFailure

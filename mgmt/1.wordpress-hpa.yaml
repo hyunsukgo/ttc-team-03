@@ -9,7 +9,7 @@ spec:
     kind: StatefulSet
     name: wordpress
   minReplicas: 3
-  maxReplicas: 15
+  maxReplicas: 30
   metrics:
   - type: Resource
     resource:
